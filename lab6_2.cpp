@@ -1,6 +1,39 @@
 #include <iostream>
+#include <cmath>
 
 using namespace std;
+
+double deg2rad(double deg){
+    return deg * M_PI / 180.0;
+}
+
+double rad2deg(double rad){
+    return rad * 180.0 / M_PI;
+}
+
+double findXComponent(double l1, double l2, double a1, double a2){
+    double x;
+    x = l1 * cos(a1) + l2 * cos(a2);
+    return x;
+}
+
+double findYComponent(double l1, double l2, double a1, double a2){
+    double y;
+    y = l1 * sin(a1) + l2 * sin(a2);
+    return y;
+}
+
+double pythagoras(double x, double y){
+    return sqrt(x*x + y*y);
+}
+
+double showResult(double result_vec_length, double result_vec_direction){
+    cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
+    cout << "Length of the resultant vector = " << result_vec_length << "\n";
+    cout << "Direction of the resultant vector (deg) = " << result_vec_direction << "\n";
+    cout << "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%\n";
+    return 0;
+}
 
 int main(){
     double l1,l2,a1,a2,xcomp,ycomp,result_vec_length,result_vec_direction;
@@ -21,4 +54,6 @@ int main(){
     result_vec_direction = rad2deg(atan2(ycomp,xcomp)); 
 
     showResult(result_vec_length,result_vec_direction);
+
+    return 0;
 }
